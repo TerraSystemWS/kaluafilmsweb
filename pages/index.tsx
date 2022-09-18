@@ -7,7 +7,7 @@ const Home: NextPage = () => {
 	return (
 		<div>
 			<h1 className="text-3xl font-bold">Hello world!</h1>
-			<h3>I'm TerraSystem</h3>
+			<h3>I&apos;m TerraSystem</h3>
 		</div>
 	);
 };
