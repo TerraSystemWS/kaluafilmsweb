@@ -8,6 +8,7 @@ const Home: NextPage = () => {
 		<div>
 			<h1 className="text-3xl font-bold">Hello world!</h1>
 			<h3>I&apos;m TerraSystem</h3>
+			<h2>LTD SIDE</h2>
 		</div>
 	);
 };
