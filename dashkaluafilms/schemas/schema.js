@@ -5,6 +5,13 @@ import createSchema from "part:@sanity/base/schema-creator";
 import schemaTypes from "all:part:@sanity/base/schema-type";
 
 // We import object and document schemas
+import testimunhos from "./testimunhos";
+import faq from "./faq";
+import subscricao from "./subscricao";
+import contatos from "./contatos";
+import posts from "./posts";
+import galeria from "./galeria";
+import documentos from "./documentos";
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -15,5 +22,12 @@ export default createSchema({
 	types: schemaTypes.concat([
 		// The following are document types which will appear
 		// in the studio.
+		testimunhos,
+		faq,
+		subscricao,
+		contatos,
+		posts,
+		galeria,
+		documentos,
 	]),
 });
