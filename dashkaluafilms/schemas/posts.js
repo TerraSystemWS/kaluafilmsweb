@@ -8,6 +8,21 @@ export default {
 			type: "string",
 			title: "Titulo",
 			description: "Titulo do post",
+			validation: (Rule) => [
+				Rule.required()
+					.min(10)
+					.error("É necessario um titulo de pelo menos 5 caracteres"),
+				Rule.max(50).warning("É aconselhavel um titulo de até 50 caracteres"),
+			],
+		},
+		{
+			name: "slug",
+			title: "Slug",
+			type: "slug",
+			options: {
+				source: "title",
+				maxlength: 100,
+			},
 		},
 		{
 			name: "subtitle",
@@ -35,5 +50,13 @@ export default {
 			type: "array",
 			of: [{ type: "block" }],
 		},
+		{
+			title: "Gostos",
+			type: "number",
+		},
 	],
+
+	initialValue: {
+		gostos: 0,
+	},
 };
