@@ -35,10 +35,13 @@ export default {
 			type: "image",
 			title: "Capa",
 			description: "Imagem de capa para o post",
+			options: {
+				hotspot: true,
+			},
 		},
 		{
 			title: "Resumo",
-			name: "resume",
+			name: "resumo",
 			type: "text",
 			description:
 				"escreva o primeiro estrofe do seu post, isso melhora as pesquisas do google e outros",
@@ -51,6 +54,7 @@ export default {
 			of: [{ type: "block" }],
 		},
 		{
+			name: "gostos",
 			title: "Gostos",
 			type: "number",
 		},
