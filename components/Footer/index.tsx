@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { FaFacebook, FaInstagram } from "react-icons/fa";
 
 const Footer = () => {
 	return (
@@ -22,13 +23,23 @@ const Footer = () => {
 					</div>
 					{/* <!-- Social Links Container --> */}
 					<div className="flex justify-center space-x-4">
-						{/* <!-- Link 1 -->
-						<a href="#">
-							<img src="img/icon-facebook.svg" alt="" className="h-8" />							
+						{/* <!-- Link 1 --> */}
+						<a
+							href="https://www.facebook.com/kaluafilms"
+							target="_blank"
+							rel="noreferrer"
+							className="text-2xl text-branco"
+						>
+							<FaFacebook />
 						</a>
-						{/* <!-- Link 2 --> * /}
-						<a href="#">
-							<img src="img/icon-youtube.svg" alt="" className="h-8" />
+						{/* <!-- Link 2 --> */}
+						<a
+							href="https://www.instagram.com/kaluafilms"
+							target="_blank"
+							rel="noreferrer"
+							className="text-2xl text-branco"
+						>
+							<FaInstagram />
 						</a>
 						{/* <!-- Link 3 --> * /}
 						<a href="#">
@@ -96,7 +107,7 @@ const Footer = () => {
 						</div>
 					</form>
 					<div className="hidden text-white md:block">
-						Copyright &copy; 2022, All Rights Reserved
+						Copyright &copy; 2022, Todos os direitos reservados
 					</div>
 				</div>
 			</div>

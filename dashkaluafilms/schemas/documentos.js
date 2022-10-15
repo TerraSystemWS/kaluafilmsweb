@@ -43,19 +43,19 @@ export default {
 						list: [
 							{
 								title: "Posiçao 1",
-								value: 1,
+								value: 0,
 							},
 							{
 								title: "Posiçao 2",
-								value: 2,
+								value: 1,
 							},
 							{
 								title: "Posiçao 3",
-								value: 3,
+								value: 2,
 							},
 							{
 								title: "Posiçao 4",
-								value: 4,
+								value: 3,
 							},
 						],
 					},

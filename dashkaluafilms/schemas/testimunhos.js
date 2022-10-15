@@ -9,6 +9,12 @@ export default {
 			title: "Título",
 		},
 		{
+			name: "pessoa",
+			type: "string",
+			title: "Pessoa",
+			description: "A pessoa que vai testemunhar",
+		},
+		{
 			name: "descricao",
 			type: "text",
 			title: "Descrição",
