@@ -6,7 +6,15 @@ import Link from "next/link";
 import sanityClient from "../../sanityClient";
 import React from "react";
 
-const BlogPost: NextPage = ({ _id, title, gostos, resumo, cover }) => {
+// interface Dados {
+// 	_id: string;
+// 	title: string;
+// 	gostos: number;
+// 	resumo: string;
+// 	cover: string;
+// }
+
+const BlogPost: NextPage = ({ _id, title, gostos, resumo, cover }: any) => {
 	// console.log(posts);
 	const [gostoState, setGosto] = React.useState(gostos);
 
@@ -39,7 +47,7 @@ const BlogPost: NextPage = ({ _id, title, gostos, resumo, cover }) => {
 	);
 };
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps({ params }: any) {
 	const slug = params.slug;
 
 	const [post] = await sanityClient.fetch(`
@@ -69,7 +77,7 @@ export async function getStaticPaths() {
     `);
 
 	return {
-		paths: posts.map(({ slug }) => `/blog/${slug}`),
+		paths: posts.map(({ slug }: any) => `/blog/${slug}`),
 		fallback: false,
 	};
 }

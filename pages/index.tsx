@@ -8,7 +8,13 @@ import Layout from "../components/Layout";
 import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
 
-const Home: NextPage = ({ posts, destaque, video, testemunho, portfolio }) => {
+const Home: NextPage = ({
+	posts,
+	destaque,
+	video,
+	testemunho,
+	portfolio,
+}: any) => {
 	// console.log(destaque[0].pposition);
 
 	// css para o portfolio estiloso
@@ -35,7 +41,7 @@ const Home: NextPage = ({ posts, destaque, video, testemunho, portfolio }) => {
 		};
 	});
 
-	video.map((value, index) => {
+	video.map((value: any, index: any) => {
 		// console.log(index);
 		videos[index] = {
 			id: index || 0,
@@ -45,7 +51,7 @@ const Home: NextPage = ({ posts, destaque, video, testemunho, portfolio }) => {
 		};
 	});
 
-	testemunho.map((value, index) => {
+	testemunho.map((value: any, index: any) => {
 		// console.log(index);
 		testemunhos[index] = {
 			id: index || 0,
@@ -104,7 +110,7 @@ const Home: NextPage = ({ posts, destaque, video, testemunho, portfolio }) => {
 					</div>
 					{/* imagem */}
 					<div className="md:w-1/2">
-						{destaques.map((value, index) => {
+						{destaques.map((value: any, index: any) => {
 							return value.posicao == 1 ? (
 								<Image
 									key={index}
@@ -173,7 +179,7 @@ const Home: NextPage = ({ posts, destaque, video, testemunho, portfolio }) => {
 			{/* secçao do foto cover */}
 			<section className="">
 				<div className="w-full h-96 bg-cover bg-center relative">
-					{destaques.map((value, index) => {
+					{destaques.map((value: any, index: any) => {
 						return value.posicao == 2 ? (
 							// <Image
 							// 	key={index}
@@ -204,7 +210,7 @@ const Home: NextPage = ({ posts, destaque, video, testemunho, portfolio }) => {
 						Veja um dos nossos videos abaixo e veja do que somos capazes
 					</p>
 				</div>
-				{videos.map((value, index) => {
+				{videos.map((value: any, index: any) => {
 					return value.posicao == 1 ? (
 						// <Image
 						// 	key={index}
@@ -224,7 +230,7 @@ const Home: NextPage = ({ posts, destaque, video, testemunho, portfolio }) => {
 			<section className=" bg-laranja w-ful flex justify-center p-10 h-1/2">
 				<div className="slide-container w-2/3">
 					<Slide>
-						{testemunhos.map((value, index) => (
+						{testemunhos.map((value: any, index: any) => (
 							<div
 								key={index}
 								className="each-slide flex justify-center text-center"
@@ -257,7 +263,7 @@ const Home: NextPage = ({ posts, destaque, video, testemunho, portfolio }) => {
 					</p>
 				</div>
 				<div className="grid grid-flow-col grid-rows-2 grid-cols-3 gap-8">
-					{portfolio.map((value, index) => (
+					{portfolio.map((value: any, index: any) => (
 						<div key={index} className={portfolioCss[index]}>
 							<Image
 								src={value.imagem}
