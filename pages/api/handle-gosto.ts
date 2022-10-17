@@ -4,9 +4,10 @@ import type { NextApiRequest, NextApiResponse } from "next";
 // my imports
 import sanityClient from "../../sanityClient";
 
-type Data = {
-	name: string;
-};
+// type Data = {
+// 	name: string;
+// 	gostos: number;
+// };
 
 sanityClient.config({
 	token: process.env.SANITY_WRITE_TOKEN,
@@ -14,7 +15,7 @@ sanityClient.config({
 
 export default async function handler(
 	req: NextApiRequest,
-	res: NextApiResponse<Data>
+	res: NextApiResponse
 ) {
 	const { _id } = JSON.parse(req.body);
 	const data = await sanityClient.patch(_id).inc({ gostos: 1 }).commit();
