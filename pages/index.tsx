@@ -212,14 +212,14 @@ const Home: NextPage = ({
 				</div>
 				{videos.map((value: any, index: any) => {
 					return value.posicao == 1 ? (
-						// <Image
-						// 	key={index}
-						// 	src={value.url}
-						// 	alt={value.title}
-						// 	width={1080}
-						// 	height={600}
-						// />
-						<video src={value.url} className="w-3/4 h-96 mb-10" controls />
+						 <Image
+						 	key={index}
+						 	src={value.url}
+						 	alt={value.title}
+						 	width={1080}
+						 	height={600}
+						 />
+						// <video src={value.url} className="w-3/4 h-96 mb-10" controls />
 					) : (
 						""
 					);
