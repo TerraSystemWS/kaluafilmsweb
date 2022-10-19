@@ -45,6 +45,8 @@ export default {
 			type: "text",
 			description:
 				"escreva o primeiro estrofe do seu post, isso melhora as pesquisas do google e outros",
+			validation: (Rule) =>
+				Rule.max(120).warning(`O resumo não deve ultrapassar 250 caracteres`),
 		},
 		{
 			title: "Detalhes",
