@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React, { useState } from "react";
+import Link from "next/link";
 
 const Navbar = () => {
 	const [isOpen, setIsOpen] = useState(false);
@@ -26,12 +27,16 @@ const Navbar = () => {
 			<div className="flex items-center justify-between">
 				{/* logo */}
 				<div className="pt-2">
-					<Image
-						src="/k_logo_b.png"
-						alt="logo da kalua films"
-						width={200}
-						height={50}
-					/>
+					<Link href="/">
+						<a>
+							<Image
+								src="/k_logo_b.png"
+								alt="logo da kalua films"
+								width={200}
+								height={50}
+							/>
+						</a>
+					</Link>
 				</div>
 				{/* menu items */}
 				<div className="hidden md:flex space-x-12">

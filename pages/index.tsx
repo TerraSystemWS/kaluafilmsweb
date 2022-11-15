@@ -83,7 +83,7 @@ const Home: NextPage = ({
 		// 	))}
 		// </main>
 		<Layout>
-			{/* <pre>{JSON.stringify(destaque, null, 2)}</pre> */}
+			{/* <pre>{JSON.stringify(posts, null, 2)}</pre> */}
 			{/* hero section */}
 			<section id="hero" className="">
 				{/* flex contaier */}
@@ -100,12 +100,12 @@ const Home: NextPage = ({
 							Estas a um click do seu Desejo!
 						</p>
 						<div className="flex justify-center md:justify-center">
-							<a
+							<Link
 								href="/contatos"
 								className="p-3 px-6 pt-2 text-white bg-laranja hover:bg-laranja-claro rounded-full baseline hover:bg- md:block"
 							>
-								Saiba Mais
-							</a>
+								<a>Saiba Mais</a>
+							</Link>
 						</div>
 					</div>
 					{/* imagem */}
@@ -181,19 +181,21 @@ const Home: NextPage = ({
 				<div className="w-full h-96 bg-cover bg-center relative">
 					{destaques.map((value: any, index: any) => {
 						return value.posicao == 2 ? (
-							// <Image
-							// 	key={index}
-							// 	src={value.url}
-							// 	alt={value.title}
-							// 	width={1080}
-							// 	height={600}
-							// />
-							<img
+							<Image
+								key={index}
 								src={value.url}
 								alt={value.title}
+								width={2080}
+								height={510}
 								className="w-full h-full object-cover"
 							/>
 						) : (
+							// <img
+							// key={index}
+							// src={value.url}
+							// alt={value.title}
+							// className="w-full h-full object-cover"
+							// />
 							""
 						);
 					})}
@@ -219,7 +221,12 @@ const Home: NextPage = ({
 						//  	width={1080}
 						//  	height={600}
 						//  />
-						<video src={value.url} className="w-3/4 h-96 mb-10" controls />
+						<video
+							key={index}
+							src={value.url}
+							className="w-3/4 h-96 mb-10"
+							controls
+						/>
 					) : (
 						""
 					);
@@ -274,41 +281,6 @@ const Home: NextPage = ({
 							/>
 						</div>
 					))}
-					{/* <div className="transform scale-110 -rotate-6"> 
-						<img
-							src="https://tailwindcss.com/_next/static/media/5.e8ff4aa4.jpg"
-							alt=""
-							loading="lazy"
-						/>
-					</div>
-					<div className="col-start-3 transform scale-75 rotate-6 translate-x-2 translate-y-15">
-						<img
-							src="https://tailwindcss.com/_next/static/media/5.e8ff4aa4.jpg"
-							alt=""
-							loading="lazy"
-						/>
-					</div>
-					<div className="transform scale-150 translate-y-11">
-						<img
-							src="https://tailwindcss.com/_next/static/media/5.e8ff4aa4.jpg"
-							alt=""
-							loading="lazy"
-						/>
-					</div>
-					<div className="transform translate-y-24">
-						<img
-							src="https://tailwindcss.com/_next/static/media/5.e8ff4aa4.jpg"
-							alt=""
-							loading="lazy"
-						/>
-					</div>
-					<div className="row-start-1 col-start-2 col-span-2 transform translate-x-20 translate-y-4">
-						<img
-							src="https://tailwindcss.com/_next/static/media/5.e8ff4aa4.jpg"
-							alt=""
-							loading="lazy"
-						/>
-					</div>*/}
 				</div>
 			</section>
 
@@ -330,30 +302,80 @@ const Home: NextPage = ({
 					</div>
 				</div>
 			</section>
+
+			{/* blog posts list */}
+			<section className="container mx-auto p-4 flex items-center flex-col mb-14">
+				<div className="w-fit p-2 mt-10">
+					<h1 className="text-4xl md:text-5xl font-bold max-w-2xl text-center">
+						<Link href="/posts">Siga Os Nossos Posts</Link>
+					</h1>
+					<p className="mt-2 text-xl font-thin text-center">
+						Descubra mais sobre a kaluafilms, sobre os nossos trabalhos e
+						algumas curiosidades
+					</p>
+				</div>
+				<div className="grid md:grid-cols-3 gap-4 mt-10">
+					{posts.map((value: any, index: any) => (
+						<div key={index}>
+							<Link href={`post/${value.slug}`}>
+								<>
+									<a href={`post/${value.slug}`} className="cursor-pointer">
+										<Image
+											src={value.imagem}
+											alt={value.title}
+											width={450}
+											height={300}
+										/>
+									</a>
+									<h1 className="font-bold mt-2 ">
+										<Link
+											href={`post/${value.slug}`}
+											className="cursor-pointer"
+										>
+											{value.title}
+										</Link>
+									</h1>
+									<p className="font-light">{value.subtitle}</p>
+									<div className="mt-2 font-thin text-justify">
+										<Link href={`post/${value.slug}`}>
+											<article>
+												{value.resumo}...{" "}
+												<span className="hover:text-laranja cursor-pointer">
+													[ver mais]
+												</span>
+											</article>
+										</Link>
+									</div>
+								</>
+							</Link>
+						</div>
+					))}
+				</div>
+			</section>
 		</Layout>
 	);
 };
 
 export async function getStaticProps() {
-	/*
 	const posts = await sanityClient.fetch(`
 	*[_type == 'posts']
 	{
 		_id,
 		'slug': slug.current,
 		title,
-		cover,
+		subtitle,
+		'imagem': cover.asset->url,
 		resumo
-	}
+	}[0...3]
 	`);
-*/
+
 	const destaque = await sanityClient.fetch(`
 	*[_type == 'galeria' && destaque] | order(_createdAt desc)
 	{
 		title,
 		pposition,
 		destaque,
-			imagem{
+		imagem{
 			asset->{
 				_id,
 				url
@@ -399,7 +421,7 @@ export async function getStaticProps() {
 
 	return {
 		props: {
-			// posts,
+			posts,
 			destaque,
 			video,
 			testemunho,

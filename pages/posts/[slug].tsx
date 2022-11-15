@@ -14,7 +14,7 @@ import React from "react";
 // 	cover: string;
 // }
 
-const BlogPost: NextPage = ({ _id, title, gostos, resumo, cover }: any) => {
+const PostItem: NextPage = ({ _id, title, gostos, resumo, cover }: any) => {
 	// console.log(posts);
 	const [gostoState, setGosto] = React.useState(gostos);
 
@@ -77,9 +77,9 @@ export async function getStaticPaths() {
     `);
 
 	return {
-		paths: posts.map(({ slug }: any) => `/blog/${slug}`),
+		paths: posts.map(({ slug }: any) => `/posts/${slug}`),
 		fallback: false,
 	};
 }
 
-export default BlogPost;
+export default PostItem;
