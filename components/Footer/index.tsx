@@ -102,7 +102,7 @@ const Footer = () => {
 								placeholder="pesquisas..."
 							/>
 							<button className="px-6 py-2 text-laranja rounded-full bg-branco hover:bg-laranja  hover:text-branco hover:border hover:border-branco focus:outline-none">
-								pesquiar
+								pesquisar
 							</button>
 						</div>
 					</form>
