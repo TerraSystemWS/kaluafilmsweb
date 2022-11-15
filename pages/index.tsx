@@ -100,11 +100,10 @@ const Home: NextPage = ({
 							Estas a um click do seu Desejo!
 						</p>
 						<div className="flex justify-center md:justify-center">
-							<Link
-								href="/contatos"
-								className="p-3 px-6 pt-2 text-white bg-laranja hover:bg-laranja-claro rounded-full baseline hover:bg- md:block"
-							>
-								<a>Saiba Mais</a>
+							<Link href="/contatos">
+								<a className="p-3 px-6 pt-2 text-white bg-laranja hover:bg-laranja-claro rounded-full baseline hover:bg- md:block">
+									Saiba Mais
+								</a>
 							</Link>
 						</div>
 					</div>
